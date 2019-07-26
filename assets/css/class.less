@@ -1,0 +1,60 @@
+.ellipsis(@width: null, @line-clamp: 1) when(@line-clamp = 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: @width;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+.ellipsis(@width: null, @line-clamp: 1) when(@line-clamp > 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: @width;
+  // 要使得多行截取生效，display的值只能为-webkit-box
+  display: -webkit-box !important;
+  -webkit-line-clamp: @line-clamp;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  word-break: break-all;
+}
+
+/*1px的像素*/
+.border(@width, @color: #ebedf0, @style: solid, @radius:0) {
+  position: relative;
+  &:after {
+    pointer-events: none;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border-width: @width;
+    border-style: @style;
+    border-color: @color;
+    border-radius: @radius;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    -webkit-transform-origin: 0 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media not all, (-webkit-max-device-pixel-ratio: 2.49) and (-webkit-min-device-pixel-ratio: 1.5), not all, (max-resolution: 239dpi) and (min-resolution: 144dpi), (max-resolution: 2.49dppx) and (min-resolution: 1.5dppx){
+    &:after{
+      width: 200%;
+      height: 200%;
+      transform:scale(0.5);
+      -webkit-transform: scale(0.5);
+    }
+  }
+
+  @media not all, (-webkit-min-device-pixel-ratio: 2.5), not all, (min-resolution: 240dpi), (min-resolution: 2.5dppx){
+    &:after{
+      width: 300%;
+      height: 300%;
+      transform:scale(0.333);
+      -webkit-transform: scale(0.333);
+    }
+  }
+}

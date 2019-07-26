@@ -1,0 +1,196 @@
+@import "./class";
+.m-loop(@n, @i: 0) when (@i <= @n) {
+  .m-r-@{i} { margin-right: @i + 0px !important; }
+  .m-l-@{i} { margin-left: @i + 0px !important; }
+  .m-t-@{i} { margin-top: @i + 0px !important; }
+  .m-b-@{i} { margin-bottom: @i + 0px !important; }
+  .p-r-@{i} { padding-right: @i + 0px !important; }
+  .p-l-@{i} { padding-left: @i + 0px !important; }
+  .p-t-@{i} { padding-top: @i + 0px !important; }
+  .p-b-@{i} { padding-bottom: @i + 0px !important; }
+  .m-loop(@n, (@i + 5)) !important;
+}
+.f-loop(@n, @i: 0) when (@i <= @n) {
+  .f@{i} { font-size: @i + 0px !important; }
+  .f-loop(@n, (@i + 1));
+}
+.m-loop(50);
+.f-loop(50);
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.vertical-align-middle {
+  vertical-align: middle;
+}
+.ypl-flex {  /* 新版本语法: Chrome 21+ */
+  display: flex;          /* 新版本语法: Opera 12.1, Firefox 22+ */
+  display: -webkit-box;   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */      /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;   /* 混合版本语法: IE 10 */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  .flex {        /* Chrome */
+    -ms-flex: 1;            /* IE 10 */
+    flex: 1;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-box-flex: 1;     /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;       /* OLD - Firefox 19- */
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+.gray-bg {
+  background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(252,252,252,1) 63%,rgba(245,245,245,1) 93%,rgba(242,242,242,1) 100%);
+}
+.text-gray {
+  color: #999;
+}
+.text-black {
+  color: #333;
+}
+.text-dark {
+  color: #000;
+}
+.text-white {
+  color: #fff;
+}
+.text-red {
+  color: #FD545B !important;
+}
+.text-blue {
+  color: #389BFF !important;
+}
+.bg-white {
+  background: #fff;
+}
+.overflowHidden {
+  overflow: hidden !important;
+}
+.ellipsis {
+  .ellipsis(100%);
+}
+.ellipsis2 {
+  .ellipsis(100%, 2);
+}
+.align-center{
+  display: flex;          /* 新版本语法: Opera 12.1, Firefox 22+ */
+  display: -webkit-box;   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */      /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;   /* 混合版本语法: IE 10 */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content:center;
+  -webkit-justify-content: center;
+  align-items:center;
+}
+.align-start{
+  display: flex;          /* 新版本语法: Opera 12.1, Firefox 22+ */
+  display: -webkit-box;   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */      /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;   /* 混合版本语法: IE 10 */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content:flex-start;
+  -webkit-justify-content: flex-start;
+}
+.btn {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.btn-normal {
+  width: 146px;
+  height: 49px;
+  background-size: cover;
+  font-size: 18px;
+  line-height: 15px;
+  border: none;
+  outline: none;
+  &[disabled="disabled"] {
+    opacity: .7;
+  }
+}
+.btn-blue {
+  background-color: #389BFF;
+  color: #fff;
+  border-radius: 3px;
+  :disabled {
+    background-color: #B1B1B1;
+  }
+  &.van-button--disabled {
+    background-color: #B1B1B1;
+    opacity: .9;
+  }
+}
+a {
+  &:active {
+    background-color: rgba(0, 0, 0, .1);
+  }
+}
+.van-picker {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+.box-shadow {
+  box-sizing: border-box;
+  box-shadow: 0 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+}
+.min-height-100{
+  min-height:100px;
+}
+.display-block { display: block; }
+.display-flex { display: flex; }
+.display-inline-block { display:inline-block; *display:inline; *zoom:1 }
+.clear-both:after { display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:"."; }
+
+.pos-rlt { position: relative; }
+.pull-right { float: right; }
+.pull-left { float: left; }
+.pos-rlt { position: relative; }
+.pos-abs { position: absolute; }
+.none { display: none; }
+.block { display: block; }
+
+.text-normal { font-weight: normal; }
+.text-bold { font-weight: bold; }
+.align-justify { text-align:justify;text-justify:inter-ideograph; }
+.v-align-middle { vertical-align: middle; }
+
+//add
+.text-underline { text-decoration: underline; }
+.text-underline-none { text-decoration: none; }
+
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.cursor-help { cursor: help; }
+.cursor-move { cursor: move; }
